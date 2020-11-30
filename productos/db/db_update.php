@@ -1,12 +1,10 @@
 <?php
 
-    $id_productos = $_GET['id_productos'];
+    $id_producto = $_GET['id_producto'];
     $producto = $_GET['producto'];
-    $Precio = $_GET['Precio'];
+    $precio = $_GET['precio'];
     $existencias = $_GET['existencias'];
-
     $db = new SQLite3('../../tienda.db');
-    $db->exec("UPDATE PRODUCTOS SET producto='$producto', Precio='$Precio', existencias='existencias',  WHERE id_productos='$id_productos';");
+    $db->exec("UPDATE PRODUCTOS SET precio='$precio', prodcuto='$producto', existencias='$existencias' WHERE id_producto='$id_producto';");
     header("Location: ../index.php");
-
 ?>

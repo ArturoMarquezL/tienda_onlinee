@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Required meta tags -->
@@ -14,8 +14,9 @@
 
 <body>
     <div class="container-fluid">
-        <h1>Update</h1>
+        <h1>Insert</h1>
         <a href="index.php">Lista de productos</a>
+        
 
         <form action='db/db_update.php' method='GET'>
             <?php include 'db/db_view.php'; ?>

@@ -1,9 +1,9 @@
 <?php
-    $id_productos= $_GET["id_productos"];
+    $id_producto = $_GET["id_producto"];
 
     $db = new SQLite3("../../tienda.db");
 
-    $db->exec("DELETE FROM PRODUCTO where id_productos='$id_productos';");
+    $db->exec("DELETE FROM producto where id_producto='$id_producto';");
 
     header("Location: ../index.php");
 ?>

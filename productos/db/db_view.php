@@ -1,34 +1,35 @@
 <?php
 
-    $id_productos = $_GET["id_productos"];
+    $id_producto = $_GET["id_producto"];
 
     $db = new SQLite3("../tienda.db");
 
-    $resultado = $db->query("SELECT * from PRODUCTOS where id_productos='$id_prodcutos';");
+    $resultado = $db->query("SELECT * from productos where id_producto='$id_producto';");
 
     while ($row = $resultado->fetchArray()) {
-        $id_productos = $row["id_productos"];
+        $id_producto = $row["id_producto"];
         $producto = $row["producto"];
-        $Precio = $row["Precio"];
+        $precio = $row["precio"];
         $existencias = $row["existencias"];
+        
     }
 
     $form = "
         <div class='form-group'>
-            <label for='id_productos'>id_productos</label>
-            <input type='text' readonly class='form-control' id='id_productos' nombre='id_productos' aria-describedby='id_productos' value='$id_productos'>
+            <label for='id_producto'>ID</label>
+            <input type='text' readonly class='form-control' id='id_producto' name='id_producto' aria-describedby='Id producto' value='$id_producto'>
         </div>
         <div class='form-group'>
             <label for='producto'>producto</label>
             <input type='text' class='form-control' id='producto' name='producto' aria-describedby='producto' value='$producto'>
         </div>
         <div class='form-group'>
-            <label for='Precio'>Precio</label>
-            <input type='text' class='form-control' id='Precio' name='Precio' aria-describedby='Precio' value='$Precio'>
+            <label for='precio'>Precio</label>
+            <input type='number' class='form-control' id='precio' name='precio' aria-describedby='precio' value='$precio'>
         </div>
         <div class='form-group'>
-            <label for='existencias'>existencias</label>
-            <input type='text' class='form-control' id='existencias' name='existencias' aria-describedby='existencias' value='$existencias'>
+            <label for='existencias'>Existencias</label>
+            <input type='number' class='form-control' id='existencias' name='existencias' aria-describedby='existencias' value='$existencias'>
         </div>
         ";
 
