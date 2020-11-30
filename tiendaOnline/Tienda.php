@@ -48,7 +48,7 @@
         <div class="control">
           <br>
         <p class="help">Para nueva compra da click en el siguiente boton:</p>
-        <button class="btn btn-outline-dark" onclick="nueva1()" id="nuevo1" name="nuevo1">Nueva Compra</button>
+        <input type="button" id ="compra" class="btn btn-outline-dark" onclick="nueva1()" value="Nueva compra">
         <div class="form-group">
           <br>
 				<label class="label">Carrito de compras</label>

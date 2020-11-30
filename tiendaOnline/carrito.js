@@ -15,7 +15,7 @@ function agregar(){
 	}
 }
 
-function nueva(){
+function nueva1(){
 	$("#cantidad1").val("");
 	$("#producto1").val("0");
 	$("#total1").val('0');
