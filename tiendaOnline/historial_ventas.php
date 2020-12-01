@@ -1,3 +1,7 @@
+<?php
+    $db = new SQLite3("../tienda.db");
+    $resultado = $db->query("SELECT * from TICKETS;");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -6,10 +10,7 @@
 <link rel="stylesheet" href="bootstrap.min.css">   
 	<title>Tienda</title>
 
-<?php
-    $db = new SQLite3("../tienda.db");
-    $resultado = $db->query("SELECT * from TICKETS;");
-?>
+
 </head>
 <table class="table table-dark">
   <thead>

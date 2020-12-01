@@ -3,6 +3,27 @@
   $total= $_GET['total1'];
   $pago= $_GET['pago1'];
   $cambio= $pago - $total;
+  $idProductos = isset($_POST['idProductos']) ? $_POST['idProductos'] : '';
+ $productoS= $_POST['producto'];
+    
+    include 'conexion.php';  
+    $db = new SQLite3("../tienda.db");
+    
+
+    $productos = explode(";",$idProductos);
+    foreach ($productos as $producto) {
+    $productoYCantidad = explode(":",$carritocompras);
+    if(!isset($productoYCantidad[1]) || !isset($productoYCantidad[2])){
+        continue;
+    }
+    $db->exec('UPDATE PRODUCTOS SET existencias= existencias - '.$productoYCantidad[2].' WHERE id_producto="'.$productoYCantidad[1].'"');
+    $existencias = $db->query('SELECT  existencias= existencias - '.$productoYCantidad[1].'FROM producto WHERE id_producto="'.$productoYCantidad[0].'"');
+    $db->exec("INSERT INTO TICKETS (cantidad_producto,producto,total_producto) VALUES ('$productoYCantidad[2]', '$productoYCantidad[1]', '$existencias');");
+   
+		
+		
+}
+?>
 ?>
 
 <!DOCTYPE>
