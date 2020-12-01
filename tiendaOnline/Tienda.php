@@ -1,3 +1,10 @@
+<?php
+    include 'conexionatienda.php';
+    $resultado = $db->query("SELECT * from PRODUCTOS");
+    
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +39,21 @@
 				<label class="label">Productos:</label>
         <br>
 					<select class="btn btn-secondary dropdown-toggle" name="producto1" id="producto1">
-                        <option>Selecciona un producto</option>
-                        <option value="9999">Computadora All in One Hp 290-A006BLA $9,999</option>
-                        <option value="17000">Computadora All in One Lenovo A540 $17,000</option>
-                        <option value="19999">Computadora All in One Hp Pavilion 24-R019LA $19,999</option>
-                        <option value="10000">Computadora All in One Hp Pavilion 22-B402LA  $10,000</option>
-                        <option value="20800">Computadora All in One Lenovo IdeaCentre A540 $20,800</option>
-                        <option value="48999">iMac Apple MMQA2E $48,999</option>
-                        <option value="11190">Monitor Gamer Dell Alienware AW2518H $11,190</option>
-                        <option value="3000">Monitor Gamer LG 24MK430H-B $3,000</option>
+                        <option value="0" selected>Selecciona un producto</option>
+            <?php 
+                        
+                        while ($row = $resultado->fetchArray())
+                        {
+                            $existencias = $row["existencias"];
+                            if ($existencias>0)
+                            {
+                    ?>
+                                <option data-id="<?php echo $row['id_producto']?>" value="<?php echo $row['precio']?>"> <?php echo $row['producto']?></option>
+                    <?php
+                            }
+                        }
+                    ?> 
+            ?>
                     </select>
 				</div>
          <input type="button" id="insert" class="btn btn-outline-dark" onclick="agregar()"  value="Insertar">       

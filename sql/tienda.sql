@@ -5,10 +5,11 @@ CREATE TABLE PRODUCTOS(
     existencias integer
 );
 CREATE TABLE TICKETS(
-    fecha date,
-    hora_venta time,
+    id_ticket integer PRIMARY KEY autoincrement,
+    fecha_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
     cantidad_producto varchar(100),
-    total_producto decimal(100,0)
+    producto varchar(100),
+    total_producto varchar(100)
 );
 INSERT INTO PRODUCTOS (producto, precio, existencias) VALUES 
 ('Computadora All in One Hp 290-A006BLA','9999','8'),
